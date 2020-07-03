@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">TipCalculator</string>
+    <string name="value">Value</string>
+    <string name="tip">Tip</string>
+    <string name="total_value">Total Value</string>
+</resources>
