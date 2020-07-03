@@ -3,4 +3,5 @@
     <string name="value">Value</string>
     <string name="tip">Tip</string>
     <string name="total_value">Total Value</string>
+    <string name="valuedefaut">0.0</string>
 </resources>
