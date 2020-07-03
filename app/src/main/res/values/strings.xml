@@ -4,4 +4,6 @@
     <string name="tip">Tip</string>
     <string name="total_value">Total Value</string>
     <string name="valuedefaut">0.0</string>
+    <string name="reset_values">Reset Values</string>
+    <string name="alert_title">Warning</string>
 </resources>

@@ -1,8 +1,12 @@
 package com.studyingandroid.tipcalculator;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
+import android.widget.Button;
 import android.widget.EditText;
 import android.widget.SeekBar;
 import android.widget.TextView;
@@ -17,6 +21,7 @@ public class MainActivity extends AppCompatActivity {
     private TextView textTipValue;
     private TextView textTotalValue;
     private SeekBar seekBarPercentage;
+    private Button buttonReset;
     private double percentage = 0;
 
     @Override
@@ -29,6 +34,9 @@ public class MainActivity extends AppCompatActivity {
         textTipValue = findViewById(R.id.text_tip_total);
         textTotalValue = findViewById(R.id.text_total_value);
         seekBarPercentage = findViewById(R.id.seekbar_percentage);
+        buttonReset = findViewById(R.id.button_reset);
+
+        //buttonReset.setOnClickListener();
 
         seekBarPercentage.setOnSeekBarChangeListener(new SeekBar.OnSeekBarChangeListener() {
             @Override
@@ -63,5 +71,34 @@ public class MainActivity extends AppCompatActivity {
             textTipValue.setText(""+percentageDouble);
             textTotalValue.setText(""+totalValue);
         }
+    }
+
+    public void resetValues(View view){
+        AlertDialog.Builder alertDialog = new AlertDialog.Builder(this);
+        alertDialog.setCancelable(true); // false if you want to keep the dialog open even if user click on background
+        alertDialog.setIcon(android.R.drawable.ic_dialog_alert);
+        alertDialog.setTitle("Warning");
+        alertDialog.setMessage("Are you sure you want to reset the values?");
+        alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                editValue.setText("");
+                textTipValue.setText("0.0");
+                textTotalValue.setText("0.0");
+                percentage = 0;
+                textPercentage.setText("0%");
+                seekBarPercentage.setProgress(0);
+
+            }
+        });
+        alertDialog.setNegativeButton("No", new DialogInterface.OnClickListener() {
+            @Override
+            public void onClick(DialogInterface dialog, int which) {
+                Toast.makeText(getApplicationContext(), "Canceled", Toast.LENGTH_SHORT).show();
+            }
+        });
+        alertDialog.create();
+        alertDialog.show();
+
     }
 }
