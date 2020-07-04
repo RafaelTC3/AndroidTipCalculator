@@ -82,12 +82,12 @@ public class MainActivity extends AppCompatActivity {
         alertDialog.setPositiveButton("Yes", new DialogInterface.OnClickListener() {
             @Override
             public void onClick(DialogInterface dialog, int which) {
+                seekBarPercentage.setProgress(0);
                 editValue.setText("");
                 textTipValue.setText("0.0");
                 textTotalValue.setText("0.0");
                 percentage = 0;
                 textPercentage.setText("0%");
-                seekBarPercentage.setProgress(0);
 
             }
         });
